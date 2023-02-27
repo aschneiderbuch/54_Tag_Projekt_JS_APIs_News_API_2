@@ -26,18 +26,31 @@ import { useEffect } from "react";
 // sfc
 const Home = () => {
 
-
+    // data und fetch abhören
     const [getData, setData] = useState(dataExport0);
     console.log("wenn dieser Text erscheint, gibt es ein render Ereignis")
 
+    // suchtext abhören
+    const [getSuchText, setSuchText] = useState(`?q=bitcoin`);
+
+
+
+
+
+/*******************************************************************************************
+ * 
+ *                Fetch
+ * 
+ ********************************************************************************************/
+
     useEffect(() => {
         console.log("in useEffect ")
-        fetch(`https://newsapi.org/v2/everything?q=bitcoin&apiKey=d1bac37fa63346329db5ce20423e0671`)
-        .then(response => response.json())
-        .then(data => {
-            console.log("update")
-            console.log("data")
-            console.log(data)
+        fetch(`https://newsapi.org/v2/everything${getSuchText}&apiKey=d1bac37fa63346329db5ce20423e0671`)
+            .then(response => response.json())
+            .then(data => {
+                console.log("update")
+                console.log("data")
+                console.log(data)
 
                 setData(data)
             })
@@ -46,13 +59,7 @@ const Home = () => {
                 console.log(error)
             })
 
-    }, []);
-
-
-
-
-
-
+    }, [getSuchText]);
 
 
     console.log(getData)
@@ -64,21 +71,31 @@ const Home = () => {
 
 
 
+    /************************************************************************************************
+     * 
+     *                  textSuche Input
+     * 
+     *************************************************************************************************/
+/* useEffect( (e) => {
+    const handelTexSuche = (e) => {
+        console.log(e.target.value)
+        //setSuchText = (e.target.value))
+        setSuchText(`?q=${e.target.value}`)
+    };
 
-
-
-
-
-    /* // !!! harte Daten von API importiert      -> data Data.jsx   */
-    console.log(dataExport);
+},[]); */
 
 
 
     return (
         <section className="sec_Home">
 
+            <article>
+                <h1>Home Seite</h1>
+                <h2>Suchleiste</h2>
+                <input onChange={ (e) => setSuchText(e.target.value  <=0 ? `?q=bitcoin` : `?q=${e.target.value}` )} type="text" name="textSuche" id="textSuche" placeholder="Suchbegriff dann Enter drücken" />
 
-            <h1>Home Seite</h1>
+            </article>
 
             {dataExport && dataExport.articles.map((i, index) => {
 
@@ -93,14 +110,7 @@ const Home = () => {
                     author={i.author}
                 ></HomeSchabloneItem>
 
-
-
-
             })}
-
-
-
-
 
         </section>
     );

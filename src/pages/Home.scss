@@ -4,4 +4,20 @@
 
     gap: 20px;
     columns: 20px;
+
+    article{
+        width: 100vw;
+        text-align: center;
+
+        input{
+            width: 15vw;
+            text-align: center;
+            padding: 5px 2px;
+            font-weight: bold;
+            
+         
+                color: red;
+            
+        }
+    }
 }

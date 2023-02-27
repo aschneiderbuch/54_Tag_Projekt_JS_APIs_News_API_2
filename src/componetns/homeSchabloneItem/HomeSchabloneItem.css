@@ -12,6 +12,15 @@
 .sec_HomeSchabloneItem img {
   width: 100%;
 }
+.sec_HomeSchabloneItem h1, .sec_HomeSchabloneItem p {
+  color: gray;
+}
+.sec_HomeSchabloneItem h1::-moz-selection, .sec_HomeSchabloneItem p::-moz-selection {
+  background-color: yellowgreen;
+}
+.sec_HomeSchabloneItem h1::selection, .sec_HomeSchabloneItem p::selection {
+  background-color: yellowgreen;
+}
 .sec_HomeSchabloneItem button {
   margin: auto;
   width: 10vw;
