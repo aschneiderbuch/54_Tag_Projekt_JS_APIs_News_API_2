@@ -8,9 +8,12 @@
   width: 200px;
   border: 2px solid orange;
   border-radius: 20px;
+  overflow: hidden; /* chinesische Zeichen halten sich nicht ans padding  */
 }
 .sec_HomeSchabloneItem img {
   width: 100%;
+  background-size: contain;
+  color: yellow; /* es wird nur der alt text angezeigt */
 }
 .sec_HomeSchabloneItem h1, .sec_HomeSchabloneItem p {
   color: gray;

@@ -1,9 +1,9 @@
 .sec_Home {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  -moz-columns: 20px;
-       columns: 20px;
+  gap: 10px;
+  -moz-columns: 10px;
+       columns: 10px;
 }
 .sec_Home article {
   width: 100vw;
@@ -15,4 +15,11 @@
   padding: 5px 2px;
   font-weight: bold;
   color: red;
+}
+.sec_Home article > article {
+  background-color: goldenrod;
+  width: 25vw;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
 }/*# sourceMappingURL=Home.css.map */

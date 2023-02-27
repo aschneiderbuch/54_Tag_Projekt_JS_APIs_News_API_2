@@ -33,19 +33,22 @@ const Home = () => {
     // suchtext abhören
     const [getSuchText, setSuchText] = useState(`?q=bitcoin`);
 
+    // sprachAuswahl abhören
+    const [getSprachAuswahl, setSprachAuswahl] = useState(`&language=de`)
 
 
 
 
-/*******************************************************************************************
- * 
- *                Fetch
- * 
- ********************************************************************************************/
+
+    /*******************************************************************************************
+     * 
+     *                Fetch
+     * 
+     ********************************************************************************************/
 
     useEffect(() => {
         console.log("in useEffect ")
-        fetch(`https://newsapi.org/v2/everything${getSuchText}&apiKey=d1bac37fa63346329db5ce20423e0671`)
+        fetch(`https://newsapi.org/v2/everything${getSuchText}${getSprachAuswahl}&apiKey=d1bac37fa63346329db5ce20423e0671`)
             .then(response => response.json())
             .then(data => {
                 console.log("update")
@@ -73,17 +76,10 @@ const Home = () => {
 
     /************************************************************************************************
      * 
-     *                  textSuche Input
+     *                  
      * 
      *************************************************************************************************/
-/* useEffect( (e) => {
-    const handelTexSuche = (e) => {
-        console.log(e.target.value)
-        //setSuchText = (e.target.value))
-        setSuchText(`?q=${e.target.value}`)
-    };
 
-},[]); */
 
 
 
@@ -93,7 +89,38 @@ const Home = () => {
             <article>
                 <h1>Home Seite</h1>
                 <h2>Suchleiste</h2>
-                <input onChange={ (e) => setSuchText(e.target.value  <=0 ? `?q=bitcoin` : `?q=${e.target.value}` )} type="text" name="textSuche" id="textSuche" placeholder="Suchbegriff dann Enter drücken" />
+
+                <article>
+                    <label htmlFor="sprachAuswahl">Wähle eine Sprache aus</label>
+                    <select onChange={ (e) => setSprachAuswahl(`&language=${e.target.value}`)   }  name="sprachAuswahl" id="sprachAuswahl">
+                        <option value="en">en</option>
+                        <option value="de" selected>de</option>
+                        <option value="ar">ar</option>
+                        <option value="es">es</option>
+                        <option value="fr">fr</option>
+                        <option value="he">he</option>
+                        <option value="it">it</option>
+                        <option value="nl">nl</option>
+                        <option value="no">no</option>
+                        <option value="pt">pt</option>
+                        <option value="ru">ru</option>
+                        <option value="sv">sv</option>
+                        <option value="ud">ud</option>
+                        <option value="zh">zh</option>
+
+
+                    </select>
+                </article>
+
+
+
+
+
+
+
+
+                {/*                if  <=0   ?dann           :else        */}
+                <input onChange={(e) => setSuchText(e.target.value <= 0 ? `?q=bitcoin` : `?q=${e.target.value}`)} type="text" name="textSuche" id="textSuche" placeholder="Suchbegriff dann Enter drücken" />
 
             </article>
 

@@ -13,8 +13,13 @@
 
             border: 2px solid orange;
             border-radius: 20px;
+
+            overflow: hidden;  /* chinesische Zeichen halten sich nicht ans padding  */
         img {
             width: 100%;
+
+            background-size: contain;
+            color: yellow;     /* es wird nur der alt text angezeigt */
         }
 
          h1, p {
