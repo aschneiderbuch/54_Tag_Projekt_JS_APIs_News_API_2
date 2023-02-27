@@ -1,0 +1,42 @@
+.sec_HomeSchabloneItem {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        padding: 10px 20px;
+        
+        text-align: center;
+
+        margin: auto;
+
+            width: 200px;
+
+            border: 2px solid orange;
+            border-radius: 20px;
+        img {
+            width: 100%;
+        }
+
+        button{
+            margin: auto;
+            width: 10vw;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: green;
+            }
+
+            a{
+                text-decoration: none;
+                color: black;
+
+                &:hover{
+                    color: white;
+                }
+
+            }
+
+            
+        }
+    }
+    
